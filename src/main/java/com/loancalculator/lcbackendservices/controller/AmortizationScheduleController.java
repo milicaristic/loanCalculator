@@ -1,7 +1,6 @@
 package com.loancalculator.lcbackendservices.controller;
 
 import com.loancalculator.lcbackendservices.model.AmortizationSchedule;
-import com.loancalculator.lcbackendservices.model.LoanRequest;
 import com.loancalculator.lcbackendservices.service.AmortizationScheduleService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +27,7 @@ public class AmortizationScheduleController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<AmortizationSchedule>> getAllAmortizationSchedules(){
+    public ResponseEntity<List<AmortizationSchedule>> getAllAmortizationSchedules() {
         List<AmortizationSchedule> allAmortizationSchedules = amortizationScheduleService.findAllAmortizationSchedules();
         return new ResponseEntity<>(allAmortizationSchedules, HttpStatus.OK);
     }

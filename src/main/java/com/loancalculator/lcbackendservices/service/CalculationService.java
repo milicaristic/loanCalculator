@@ -19,9 +19,9 @@ public class CalculationService {
         Calculation calculation = new Calculation();
         double loanAmount = loanRequest.getLoanAmount();
         double interestRate = loanRequest.getInterestRate() / 100 / 12;
-        int months= loanRequest.getLoanTerm() * 12;
+        int months = loanRequest.getLoanTerm() * 12;
 
-        double monthlyPayment = calculateMonthlyPayment(loanAmount,interestRate, months);
+        double monthlyPayment = calculateMonthlyPayment(loanAmount, interestRate, months);
         double totalInterestPaid = calculateTotalInterestPaid(monthlyPayment, months, loanAmount);
 
         calculation.setMonthlyPayment((Math.round(monthlyPayment * 100.0)) / 100.0);
@@ -30,8 +30,8 @@ public class CalculationService {
         return addCalculation(calculation);
     }
 
-    private double calculateMonthlyPayment(double loanAmount,double interestRate, int months) {
-        return (loanAmount * interestRate * Math.pow((1+interestRate),months)) / (Math.pow((1+interestRate),months) -1);
+    private double calculateMonthlyPayment(double loanAmount, double interestRate, int months) {
+        return (loanAmount * interestRate * Math.pow((1 + interestRate), months)) / (Math.pow((1 + interestRate), months) - 1);
     }
 
     private double calculateTotalInterestPaid(double monthlyPayment, int months, double loanAmount) {

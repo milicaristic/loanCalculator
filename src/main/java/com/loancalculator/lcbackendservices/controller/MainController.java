@@ -3,7 +3,6 @@ package com.loancalculator.lcbackendservices.controller;
 import com.loancalculator.lcbackendservices.model.AmortizationSchedule;
 import com.loancalculator.lcbackendservices.model.Calculation;
 import com.loancalculator.lcbackendservices.model.LoanRequest;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,11 +24,11 @@ public class MainController {
 
 
     @PostMapping("/add")
-    public ResponseEntity<LoanRequest> addLoanRequest(@RequestBody LoanRequest loanRequest){
+    public ResponseEntity<LoanRequest> addLoanRequest(@RequestBody LoanRequest loanRequest) {
         return loanRequestController.addLoanRequest(loanRequest);
     }
 
-    @GetMapping("/find")
+    @GetMapping("/findCalculation")
     public ResponseEntity<Calculation> getCalculationByLoanRequestId(@RequestBody LoanRequest loanRequest) {
         return calculationController.getCalculationById(loanRequest.getId());
     }
@@ -39,8 +38,8 @@ public class MainController {
         return amortizationScheduleController.getAllAmortizationSchedules();
     }
 
-    @GetMapping("/findAmortizationSchedule")
-    public ResponseEntity<List<AmortizationSchedule>> getAmortizationScheduleByCalculation(@RequestBody Calculation calculation) {
-        return amortizationScheduleController.getAmortizationScheduleById(calculation.getId());
+    @GetMapping("/find/amortizationSchedule")
+    public ResponseEntity<List<AmortizationSchedule>> getAmortizationScheduleByCalculation(@RequestBody LoanRequest loanRequest) {
+        return amortizationScheduleController.getAmortizationScheduleById(loanRequest.getId());
     }
 }

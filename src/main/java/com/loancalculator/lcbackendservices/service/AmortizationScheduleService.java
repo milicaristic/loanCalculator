@@ -6,7 +6,6 @@ import com.loancalculator.lcbackendservices.model.LoanRequest;
 import com.loancalculator.lcbackendservices.repo.AmortizationScheduleRepo;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

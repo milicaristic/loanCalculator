@@ -21,7 +21,7 @@ public class LoanRequestController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<LoanRequest>> getAllLoanRequests(){
+    public ResponseEntity<List<LoanRequest>> getAllLoanRequests() {
         List<LoanRequest> loanRequests = loanRequestService.findAllLoanRequests();
         return new ResponseEntity<>(loanRequests, HttpStatus.OK);
     }
@@ -32,19 +32,19 @@ public class LoanRequestController {
         return new ResponseEntity<>(loanRequest, HttpStatus.OK);
     }
 
-    public ResponseEntity<LoanRequest> addLoanRequest(LoanRequest loanRequest){
+    public ResponseEntity<LoanRequest> addLoanRequest(LoanRequest loanRequest) {
         LoanRequest newLoanRequest = loanRequestService.addLoanRequest(loanRequest);
         return new ResponseEntity<>(newLoanRequest, HttpStatus.CREATED);
     }
 
     @PutMapping("/update")
-    public ResponseEntity<LoanRequest> updateLoanRequest(@RequestBody LoanRequest loanRequest){
+    public ResponseEntity<LoanRequest> updateLoanRequest(@RequestBody LoanRequest loanRequest) {
         LoanRequest updatedLoanRequest = loanRequestService.updateLoanRequest(loanRequest);
         return new ResponseEntity<>(updatedLoanRequest, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteLoanRequest(@PathVariable("id") Long id){
+    public ResponseEntity<?> deleteLoanRequest(@PathVariable("id") Long id) {
         loanRequestService.deleteLoanRequest(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
