@@ -19,7 +19,7 @@ public class CalculationService {
         Calculation calculation = new Calculation();
         double loanAmount = loanRequest.getLoanAmount();
         double interestRate = loanRequest.getInterestRate() / 100 / 12;
-        int months = loanRequest.getLoanTerm() * 12;
+        int months = loanRequest.getLoanTerm();
 
         double monthlyPayment = calculateMonthlyPayment(loanAmount, interestRate, months);
         double totalInterestPaid = calculateTotalInterestPaid(monthlyPayment, months, loanAmount);

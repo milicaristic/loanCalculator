@@ -24,6 +24,8 @@ public class AmortizationScheduleService {
         return amortizationScheduleRepo.findAll();
     }
 
+
+
     public AmortizationSchedule updateAmortizationSchedule(AmortizationSchedule amortizationSchedule) {
         return amortizationScheduleRepo.save(amortizationSchedule);
     }
@@ -36,8 +38,9 @@ public class AmortizationScheduleService {
         return amortizationScheduleRepo.findAllByCalculationId(id);
     }
 
+
     public void handleAmortizationSchedule(LoanRequest loanRequest, Calculation calculation) {
-        int months = loanRequest.getLoanTerm() * 12;
+        int months = loanRequest.getLoanTerm();
         double debt = loanRequest.getLoanAmount();
         double interestRatePerMonth = loanRequest.getInterestRate() / 100 / 12;
 
