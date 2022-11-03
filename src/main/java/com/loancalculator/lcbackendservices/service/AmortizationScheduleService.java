@@ -64,11 +64,11 @@ public class AmortizationScheduleService {
         }
     }
 
-    private double calculateInterestAmount(double debt, double interestRatePerMonth) {
+    public double calculateInterestAmount(double debt, double interestRatePerMonth) {
         return Math.round(debt * interestRatePerMonth * 100.0) / 100.0;
     }
 
-    private double calculatePrincipalAmount(double paymentAmount, double interestAmount) {
+    public double calculatePrincipalAmount(double paymentAmount, double interestAmount) {
         return Math.round((paymentAmount - interestAmount) * 100.0) / 100.0;
     }
 }

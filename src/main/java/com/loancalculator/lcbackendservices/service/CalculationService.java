@@ -30,11 +30,11 @@ public class CalculationService {
         return addCalculation(calculation);
     }
 
-    private double calculateMonthlyPayment(double loanAmount, double interestRate, int months) {
+    public double calculateMonthlyPayment(double loanAmount, double interestRate, int months) {
         return (loanAmount * interestRate * Math.pow((1 + interestRate), months)) / (Math.pow((1 + interestRate), months) - 1);
     }
 
-    private double calculateTotalInterestPaid(double monthlyPayment, int months, double loanAmount) {
+    public double calculateTotalInterestPaid(double monthlyPayment, int months, double loanAmount) {
         return (monthlyPayment * months) - loanAmount;
     }
 
